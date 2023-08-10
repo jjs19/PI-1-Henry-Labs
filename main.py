@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 # Crear una instancia de la aplicación FastAPI
 app = FastAPI(docs_url="/docs")
 
-final = pd.read_csv('/Users/julianscarpeccio/Desktop/Data Science HENRY/LABS/PI MLOps/Archivo de Datos PI 1/mi_df_consultas')
+final = pd.read_csv('mi_df_consultas')
 df_final = pd.DataFrame(final)
 
 # Definir una ruta y una función de manejo para esa ruta
