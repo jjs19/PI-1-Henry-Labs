@@ -3,6 +3,8 @@
 from fastapi import FastAPI
 import pandas as pd
 import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 
 # Crear una instancia de la aplicación FastAPI
 app = FastAPI(docs_url="/docs")
@@ -17,10 +19,10 @@ def read_root():
 
 def peliculas_idioma(idioma):
     cantidad = df_final['spoken_languages'].apply(lambda x: idioma in x).sum()
-    mensaje = f"Se han lanzado '{cantidad}' de peliculas en ese Idioma"
+    mensaje = f"Se han lanzado '{cantidad}' peliculas en ese Idioma"
     return mensaje
 
-# Route to call the function with a query parameter 'idioma'
+# definimos la ruta
 @app.get("/peliculas/")
 def get_peliculas_idioma(idioma: str):
     resultado = peliculas_idioma(idioma)
@@ -43,7 +45,7 @@ def peliculas_duracion(nombre_pelicula):
 
     return mensaje
 
-# Definir una ruta en FastAPI
+# Definimos una ruta en FastAPI
 @app.get("/peliculas/{nombre_pelicula}")
 def get_pelicula(nombre_pelicula: str):
     resultado = peliculas_duracion(nombre_pelicula)
@@ -68,14 +70,14 @@ def franquicia(Franquicia: str):
 
     return mensaje
 
-# Definir una ruta en FastAPI
+# Definimos una ruta en FastAPI
 @app.get("/franquicias/{Franquicia}")
 def get_franquicia(Franquicia: str):
     resultado = franquicia(Franquicia)
     return {"resultado": resultado}
 
 
-# Definir la función
+# Definimos la función
 def peliculas_pais(pais):
     """
     Esta función toma el nombre de un país y devuelve la cantidad de películas lanzadas en ese país.
@@ -84,13 +86,13 @@ def peliculas_pais(pais):
     mensaje = f"Se han lanzado '{cantidad}' películas en '{pais}'."
     return mensaje
 
-# Definir una ruta en FastAPI
+# Definimos una ruta en FastAPI
 @app.get("/peliculas_pais/{pais}")
 def get_peliculas_pais(pais: str):
     resultado = peliculas_pais(pais)
     return {"resultado": resultado}
 
-# Definir la función
+# Definimos la función
 def productoras_exitosas(productora):
     """
     Esta función toma el nombre de una productora y devuelve información sobre la misma,
@@ -108,13 +110,13 @@ def productoras_exitosas(productora):
 
     return mensaje
 
-# Definir una ruta en FastAPI
+# Definimos una ruta en FastAPI
 @app.get("/productoras/{productora}")
 def get_productora(productora: str):
     resultado = productoras_exitosas(productora)
     return {"resultado": resultado}
 
-# Definir la función
+# Definimos la función
 def get_director_info(director):
     """
     Esta función toma el nombre de un director y devuelve información sobre las películas dirigidas por él,
@@ -142,9 +144,45 @@ def get_director_info(director):
     mensaje = f"El director '{director}' ha tenido un revenue total de ${total_revenue} y ha producido las siguientes películas:"
     return mensaje, movie_info
 
-# Definir una ruta en FastAPI
+# Definimos una ruta en FastAPI
 @app.get("/directores/{director}")
 def get_director(director: str):
     resultado, info_peliculas = get_director_info(director)
     return {"resultado": resultado, "info_peliculas": info_peliculas}
+
+# Machine Learning--
+
+ml = pd.read_csv('mi_df_ml')
+df_ml = pd.DataFrame(ml)
+
+# llenamos los valores faltantes (NaN) en la columna 'tagline'
+# concatenamos el contenido de la columna 'overview' con el contenido de la columna 'tagline' 
+# y la almacenamos en la columna 'description'.
+
+df_ml['tagline'] = df_ml['tagline'].fillna('')
+df_ml['description'] = df_ml['overview'] + df_ml['tagline']
+df_ml['description'] = df_ml['description'].fillna('')
+
+tf = TfidfVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0.01, stop_words='english')
+tfidf_matrix = tf.fit_transform(df_ml['description'])
+tfidf_matrix.shape
+cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+cosine_sim[0]
+df_ml = df_ml.reset_index()
+titles = df_ml['title']
+indices = pd.Series(df_ml.index, index=df_ml['title'])
+
+def get_recommendations(title):
+    idx = indices[title]
+    sim_scores = list(enumerate(cosine_sim[idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:6]
+    movie_indices = [i[0] for i in sim_scores]
+    recommended_movies = titles.iloc[movie_indices]
+    return recommended_movies
+
+@app.get("/recommendations/{title}")
+async def read_item(title: str):
+    recommendations = get_recommendations(title)
+    return {"recommendations": recommendations.to_dict()}
 
