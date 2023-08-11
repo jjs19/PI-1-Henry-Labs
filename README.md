@@ -77,9 +77,11 @@ Tambien se adaptó la formula al formato FastApi en el archivo: main.py para que
 ## Link a Render Consultas: https://proyecto-ind-1-henry.onrender.com/docs#/
 ## Link al video demostración: https://drive.google.com/file/d/1e_DYa52se2kS8yqHfvlq2i70DadH8lPY/view?usp=share_link 
 
-**De esta manera finalizo mi Proyecto Individual 1.
-Muchas Gracias 
-Julián Jesús Scarpeccio**
+**De esta manera finalizo mi Proyecto Individual 1.**
+
+**Muchas Gracias** 
+
+**Julián Jesús Scarpeccio**
 
 
 
