@@ -4,7 +4,7 @@
 ## Proyecto individual 1
 ## Scarpeccio Julián Jesús
 
-## Bienvenidos a mi repositorio de GitHub del Proyecto Individual numero 1 de la carrera Data Science Part Time 02 de Henry.
+## Bienvenidos a mi repositorio de GitHub del Proyecto Individual número 1 de la carrera Data Science Part Time 02 de Henry.
 
 En el presente proyecto se trabajó con datasets brindados por la academia, en este caso dos datasets de Peliculas, los cuales no estan en el Repo por una cuestion de ahorro de espacio. 
 Los mismos los pueden encontrar en los siguientes links:
