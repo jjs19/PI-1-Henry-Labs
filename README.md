@@ -1,4 +1,4 @@
-[logo]:imagenes/Data Henry.png
+[logo]:/Users/julianscarpeccio/PI-1-Henry-Labs/imagenes/Data Henry.png
 
 
 # PI-1-Henry-Data-PT02
