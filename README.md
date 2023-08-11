@@ -6,16 +6,18 @@
 
 ## Bienvenidos a mi repositorio de GitHub del Proyecto Individual número 1 de la carrera Data Science Part Time 02 de Henry.
 
-En el presente proyecto se trabajó con datasets brindados por la academia, en este caso dos datasets de Peliculas, los cuales no estan en el Repo por una cuestion de ahorro de espacio. 
+En el presente proyecto se trabajó con datasets brindados por la academia, en este caso dos datasets de Peliculas, los cuales no estan en el Repo por una cuestión de ahorro de espacio. 
 Los mismos los pueden encontrar en los siguientes links:
+
 **-movies_dataset:**  https://drive.google.com/file/d/11PW-n4obMTgK-YZ9VD3cVJwiabr7hY1c/view?usp=share_link
+
 **-credits:** https://drive.google.com/file/d/1HxSWoxncj9Waqn2k5BJdeRaHLuZ4-MoE/view?usp=share_link
 
 
-## Descripcion de archivos y pasos realizados.
+## Descripción de archivos y pasos realizados.
 
 ### 1ro: Levantamos los datasets y realizamos el proceso de ETL.
-    ETL es el acrónimo de "Extract, Transform, Load" (Extraer, Transformar, Cargar, en español), y se refiere a un proceso utilizado en la gestión y análisis de datos en el ámbito de la tecnología de la información y la informática.
+ETL es el acrónimo de "Extract, Transform, Load" (Extraer, Transformar, Cargar, en español), y se refiere a un proceso utilizado en la gestión y análisis de datos en el ámbito de la tecnología de la información y la informática.
 
 **Extract (Extraer):** En esta etapa, los datos se obtienen de diversas fuentes, en este caso en particular fue brindada por la academia. La extracción implica recopilar los datos necesarios para su posterior análisis y procesamiento.
 **Transform (Transformar):** Una vez que los datos se han extraído, generalmente necesitan ser limpiados, enriquecidos y transformados en un formato adecuado para su análisis. En esta etapa, se aplican diversas operaciones de limpieza, filtrado, agregación y manipulación de datos para garantizar que sean coherentes y útiles para el análisis.
