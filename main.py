@@ -1,4 +1,6 @@
 #main.py
+# en este documento creamos la API y desarrollamos las funciones que previamente definimos 
+#en los Notebooks PI_1_JJS_Consultas_DFfinal.ipynb y PI_1_JJS_ML Movies.ipynb
 
 from fastapi import FastAPI
 import pandas as pd
