@@ -1,5 +1,4 @@
-[logo]:https://www.soyhenry.com/_next/image?url=https%3A%2F%2Fassets.soyhenry.com%2Fhenry-landing%2Fassets%2FHenry%2Flogo.png&w=256&q=75
-
+![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
 # PI-1-Henry-Data-PT02
 ## Proyecto individual 1
@@ -56,9 +55,7 @@ Los mismos los pueden encontrar en los siguientes links:
     **El proceso de armado de consultas se encuentra en el siguiente archivo: PI_1_JJS_Consultas_DFfinal.ipynb con las respectivas explicaciones de codigo en el mismo. **
     Por otro lado el archivo main.py es el que se creo con las consultas adaptadas a FastApi. 
     
-    Una API (Interfaz de programación de aplicaciones) es un conjunto de requisiciones que permite la comunicación de datos entre aplicaciones. En nuestro caso conectamos las consultas creadas en Python con FastApi para procesar las consultas solicitadas de una manera simple y de facil acceso. Ver imagen debajo
-
-    [logo]: imagenes/FastApi image.jpg
+    Una API (Interfaz de programación de aplicaciones) es un conjunto de requisiciones que permite la comunicación de datos entre aplicaciones. En nuestro caso conectamos las consultas creadas en Python con FastApi para procesar las consultas solicitadas de una manera simple y de facil acceso.
 
 ## 4to: Por último se realizó un modelo de Machine Learning de recomendacion de Peliculas
     El trabajo realizado para esta sección se encuentra en la carpeta: PI_1_JJS_ML Movies.ipynb, donde se explica el paso a paso realizado y la teoría del modelo que se eligió.
