@@ -1,4 +1,4 @@
-[logo]:/Users/julianscarpeccio/PI-1-Henry-Labs/imagenes/Data Henry.png
+[logo]:https://www.soyhenry.com/_next/image?url=https%3A%2F%2Fassets.soyhenry.com%2Fhenry-landing%2Fassets%2FHenry%2Flogo.png&w=256&q=75
 
 
 # PI-1-Henry-Data-PT02
