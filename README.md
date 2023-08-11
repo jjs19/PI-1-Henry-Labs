@@ -2,6 +2,7 @@
 
 # PI-1-Henry-Data-PT02
 ## Proyecto individual 1
+##Scarpeccio Julián Jesús
 
 ## Bienvenidos a mi repositorio de GitHub del Proyecto Individual numero 1 de la carrera Data Science Part Time 02 de Henry.
 
